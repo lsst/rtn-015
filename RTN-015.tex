@@ -1,0 +1,70 @@
+\documentclass[DM,authoryear,toc]{lsstdoc}
+% lsstdoc documentation: https://lsst-texmf.lsst.io/lsstdoc.html
+\input{meta}
+
+% Package imports go here.
+
+% Local commands go here.
+
+%If you want glossaries
+%\input{aglossary.tex}
+%\makeglossaries
+
+\title{Brighter-Fatter Correction GPU Optimization Using CUDA C/C++}
+
+% Optional subtitle
+% \setDocSubtitle{A subtitle}
+
+\author{%
+Michael Wang
+}
+
+\setDocRef{RTN-015}
+\setDocUpstreamLocation{\url{https://github.com/lsst/rtn-015}}
+
+\date{\vcsDate}
+
+% Optional: name of the document's curator
+% \setDocCurator{The Curator of this Document}
+
+\setDocAbstract{%
+Leveraging the GPU with CUDA C/C++, the brighter-fatter effect (BFE) correction algorithm from the Large Synoptic Survey Telescope (LSST) Science Pipelines can be significantly optimized. BFE correction is among several other instrument signature removal (ISR) algorithms that are applied to astronomical images. BFE correction was a particularly good candidate for GPU optimization since it took up a majority of the ISR time (78.15% of the total ISR time). The BFE correction algorithm itself is highly parallelizable, particularly due to its use of convolutions and NumPy functions such as numpy.diff and numpy.gradient. Additionally, the algorithm is an iterative process, which offsets the time to perform memory transfers between the CPU (host) and GPU (device). The GPU implementation of the BFE correction algorithm achieved an average speed up of 10.95x over a CPU implementation using OpenCV C++.
+}
+
+% Change history defined here.
+% Order: oldest first.
+% Fields: VERSION, DATE, DESCRIPTION, OWNER NAME.
+% See LPM-51 for version number policy.
+\setDocChangeRecord{%
+  \addtohist{1}{YYYY-MM-DD}{Unreleased.}{Michael Wang}
+}
+
+
+\begin{document}
+
+% Create the title page.
+\maketitle
+% Frequently for a technote we do not want a title page  uncomment this to remove the title page and changelog.
+% use \mkshorttitle to remove the extra pages
+
+% ADD CONTENT HERE
+% You can also use the \input command to include several content files.
+
+\appendix
+% Include all the relevant bib files.
+% https://lsst-texmf.lsst.io/lsstdoc.html#bibliographies
+\section{References} \label{sec:bib}
+\renewcommand{\refname}{} % Suppress default Bibliography section
+\bibliography{local,lsst,lsst-dm,refs_ads,refs,books}
+
+% Make sure lsst-texmf/bin/generateAcronyms.py is in your path
+\section{Acronyms} \label{sec:acronyms}
+\input{acronyms.tex}
+% If you want glossary uncomment below -- comment out the two lines above
+%\printglossaries
+
+
+
+
+
+\end{document}
