@@ -1,7 +1,7 @@
 % bibentry template for lsst.bib in https://github.com/lsst/lsst-texmf/blob/master/texmf/bibtex/bib/lsst.bib
 
 @DocuShare{RTN-015,
-   author = { Michael Wang },
+   author = { Kim, A. and Skadron, A. and Neilsen, E. and Wang, M. },
     title = {Brighter-Fatter Correction GPU Optimization Using CUDA C/C++},
      year = 2021,
     month = Feb,
